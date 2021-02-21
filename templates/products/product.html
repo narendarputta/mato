@@ -1,0 +1,51 @@
+{% extends 'products/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Our Products</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- brand -->
+    <div class="brand">
+        <div class="container">
+
+        </div>
+        <div class="brand-bg">
+            <div class="container">
+                <div class="row">
+                    {% for Product in Products %}
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                        <div class="brand_box">
+                            <img src="{{Product.image.url}}" alt="img" />
+                            <h3>Rs.<strong class="red">{{Product.price}}</strong>/-</h3>
+                            <span>{{Product.title}}</span>
+                            <i><img src="{% static 'images/star.png' %}"/></i>
+                            <i><img src="{% static 'images/star.png' %}"/></i>
+                            <i><img src="{% static 'images/star.png' %}"/></i>
+                            <i><img src="{% static 'images/star.png' %}"/></i><br><br>
+                            <a href="{% url 'cart_add' Product.id %}" class="btn btn-primary">Buy now</a>
+                            <a href="viewdetails/{{Product.id}}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end brand -->
+
+    {% endblock %}

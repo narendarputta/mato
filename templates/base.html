@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+    <style >
+        body{
+          position: relative;
+          font-family: muli;
+          margin: 0px;
+          padding: 0px;
+          box-sizing: border-box;
+        }
+        .another .row{
+          font-family: muli;
+          /*height:40vh;*/
+        }
+
+
+        .footer{
+          height: 40vh;
+          padding: 40px !important;
+          margin: 40px;
+        }
+
+        .another .row .space{
+          margin-top: 50px;
+        }
+
+        .another p{
+          font-family: muli;
+        }
+
+        /*.another .row .inside{
+          margin:0px;
+          
+        }*/
+
+        .another .row  .fa{
+          font-size:100px;
+        }
+
+        p{
+          font-weight: normal;
+          line-height: 23px;
+        }
+
+        h5{
+          font-weight: 600;
+        }
+
+        .main{
+          padding: 20px;
+          margin-bottom: 20px;
+        }
+        .main .fa{
+          width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #216db0;
+    line-height: 52px;
+    padding-left: 10px;
+    font-size: 29px;
+    color: white;
+        }
+        .instructions{
+          background: #d9d3d3;border-right:1px solid white;
+        }
+
+        
+
+
+
+    </style>
+
+    <title>{{name}}</title>
+  </head>
+  <body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-4" id="navbar">
+          <a class="navbar-brand" href="#"><img src="logo2.png"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+              </li>
+            </ul>
+            
+          </div>
+      </nav>
+    </header>
+
+       {% block content %}
+
+
+       {% endblock  %}
+
+    
+      <footer class="mainfooter" style="margin-top: 100px;" role="contentinfo">
+          <div class="footer-middle">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <!--Column1-->
+                <div class="footer-pad">
+                  <h4>Heading 1</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="#"></a></li>
+                    <li><a href="#">Payment Center</a></li>
+                    <li><a href="#">Contact Directory</a></li>
+                    <li><a href="#">Forms</a></li>
+                    <li><a href="#">News and Updates</a></li>
+                    <li><a href="#">FAQs</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <!--Column1-->
+                <div class="footer-pad">
+                  <h4>Heading 2</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="#">Website Tutorial</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Webmaster</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <!--Column1-->
+                <div class="footer-pad">
+                  <h4>Heading 3</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="#">Parks and Recreation</a></li>
+                    <li><a href="#">Public Works</a></li>
+                    <li><a href="#">Police Department</a></li>
+                    <li><a href="#">Fire</a></li>
+                    <li><a href="#">Mayor and City Council</a></li>
+                    <li>
+                      <a href="#"></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <h4>Follow Us</h4>
+                    <ul class="social-network social-circle list-unstyled" style="display:flex;">
+                     <li><a href="#" class="icoFacebook p-1" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                     <li><a href="#" class="icoLinkedin p-1" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>       
+            </div>
+            </div>
+          <div class="row">
+            <div class="col-md-12 copy">
+              <p class="text-center">&copy; Copyright 2018 - Company Name.  All rights reserved.</p>
+            </div>
+          </div>
+
+
+          </div>
+          </div>
+    </footer>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<script type="text/javascript">
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>

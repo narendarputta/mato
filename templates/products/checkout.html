@@ -1,0 +1,45 @@
+{% extends 'products/base.html' %}
+{% load mul_tag %}
+{% block content %}
+ <section class=" p-4  mt-4"  bgcolor="black" >
+    <div class="container">
+      <div class="  row justify-content-center">
+         <div class="col-md-12">
+           <table style="margin-top:50px;" class="table table-striped">
+             <thead>
+                <th>S.No</th>
+                <th>Product Name</th>
+                <th class="align-left">Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th class="text-center">Remove</th>
+             </thead>
+             <tbody>
+                {% for key,value in request.session.cart.items %}
+                <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{value.name}}</td>
+                <td>
+                <a style="cursor:pointer;" {% check value.quantity %} href="{% url 'item_decrement' value.product_id %}">
+                <i class="fa fa-minus p-2"></i></a>
+                <input type="text" class="p-2 text-center" value="{{value.quantity}}" readonly >
+                <a style="cursor:pointer;" href="{% url 'item_increment' value.product_id %}"><i class="fa fa-plus p-2"></i></a>
+                </td>
+                <td>{{value.price}}</td>
+                <td>{% multiply value.quantity  value.price  %}</td>
+                <td class="text-center"><a href="{% url 'item_clear' value.product_id %}"><i class="fa fa-close"></i></a></td>
+                </tr>
+                {%  endfor %}
+                <tfoot></tfoot>
+                <tr>
+                  <th colspan="5" ><b>Total : </b></th>
+                  <th colspan class="float-right" >{{ request.session.cart|total_cart_price:request }} </th>
+                </tr>
+             </tbody>
+           </table>
+           <a href="/cart/cartinsert"><button class="btn btn-primary float-right">Pay Now</button></a>
+         </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

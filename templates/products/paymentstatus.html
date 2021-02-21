@@ -1,0 +1,20 @@
+{% extends 'products/base.html' %}
+{% load mul_tag %}
+{% block content %}
+
+<div class="col card text-center p-4 m-4 my-4">
+              {% if error %}
+				<div class="alert alert-danger mb-4">
+					{{error}}
+				</div>
+				{% endif %}
+        <h2>Payment status regarding your order Id {{response.ORDERID}}</h2>
+        {% if response.RESPCODE == '01' %}
+        ORDER SUCCESS
+        {% else %}
+        ORDER FAILURE
+        {% endif%}
+
+    </div>
+
+{% endblock %}

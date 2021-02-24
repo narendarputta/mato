@@ -140,7 +140,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'apprude.herokuapp.com']
 
 
 CART_SESSION_ID = 'cart'

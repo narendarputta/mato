@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 
 import os
-
 import dj_database_url
 
 
@@ -31,7 +30,7 @@ SECRET_KEY = 'n=6cs&y+juxz4fo9hmh1^re50#=si1_l9=ezd7(v-vk*h$tt(#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -87,17 +86,17 @@ WSGI_APPLICATION = 'firstproject.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'product',
+#         'USER' : 'postgres',
+#         'PASSWORD' :  '1234',
+#         'HOST':'localhost'
+#     }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'product',
-        'USER' : 'postgres',
-        'PASSWORD' :  '1234',
-        'HOST':'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
 }
 
 
@@ -150,14 +149,16 @@ CART_SESSION_ID = 'cart'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
-]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-STATIC_ROOT =  os.path.join(BASE_DIR,'assets')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR,'static')
+# ]
+
+
 
 MEDIA_URL = '/media/'
 

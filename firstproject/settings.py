@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
-import dj_database_url
+# import django_heroku
+# import dj_database_url
 
 
 
@@ -36,7 +36,6 @@ DEBUG =False
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'firstapp',
     'productapp',
     'django.contrib.admin',
@@ -50,7 +49,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -151,10 +149,10 @@ CART_SESSION_ID = 'cart'
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR,'static')
 # ]

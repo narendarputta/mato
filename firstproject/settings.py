@@ -138,7 +138,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-ALLOWED_HOSTS = ['https://agile-bastion-47121.herokuapp.com/','127.0.0.1:8000','localhost']
+ALLOWED_HOSTS = ['https://agile-bastion-47121.herokuapp.com/','127.0.0.1:8000','localhost','https://still-island-34167.herokuapp.com/]
 
 
 CART_SESSION_ID = 'cart'

@@ -5,6 +5,7 @@
       <div class="row row-sm">
          <div class="col-md-6">
             <div class="text-center mt-4 p-4 _product-images">
+               <h1>{{ details.title }}</h1>
                <div class="picZoomer">
                   <img class="my_img" width="20%" src="{{details.image.url}}" alt="">
                </div>
@@ -22,7 +23,8 @@
                      <span> Description About this product:- </span>
                      {{ details.description }}                       
                   </div>
-                  <form action="" method="post" accept-charset="utf-8">
+                  <form action="{% url 'cart_add' details.id %}" method="post" accept-charset="utf-8">
+                     {% csrf_token %}
                      <ul class="spe_ul"></ul>
                      <div class="_p-qty-and-cart">
                         <div class="_p-add-cart">

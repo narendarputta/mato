@@ -33,10 +33,13 @@ def products(request):
 
 
 def cartinsert(request):
+        return render(request,'products/addressform.html')
+    
+def cartPayment(request):
     cart = Cart(request)
     if request.method == "POST":
         for key in cart.cart:
-            #print(key)
+            print(key)
             address = request.POST["address"]
             pincode = request.POST["pincode"]
             cartitems = cart.cart[key]
@@ -68,8 +71,6 @@ def cartinsert(request):
             param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict,MERCHANT_KEY)
             return render(request, 'products/paytm.html', {'param_dict': param_dict})
         # order.save();
-    else:
-        return render(request,'products/addressform.html')
     
 @csrf_exempt
 def handlerequest(request):
@@ -92,34 +93,32 @@ def handlerequest(request):
 
 
 def login(request):
-    if request.session.get('id')!='':
-        print(request.session.get('id'))
-        if request.method=="POST":
-            email = request.POST['email']
-            password = request.POST['password']
-            #user = Customer.objects.get(email=email)
-            user = get_object_or_404(Customer,email=email)
-            error_message = None
-            if user is not None:
-                # auth.login(request,user)
-                flag=check_password(password,user.password)
-                if flag:
-                    request.session['id']=user.id
-                    request.session['email']=user.email
-                    request.session['username']=user.username
-                    return redirect('/')
-                else:
-                    error_message ="Password is Incorrect"
-            else:
-                error_message ="Email Doesn't Exist"
-            return render(request,'products/login.html',{'error':error_message})
-        else:
-            if request.session.get('id')!='':
+    if request.method=="POST":
+        email = request.POST['email']
+        password = request.POST['password']
+        #user = Customer.objects.get(email=email)
+        user = get_object_or_404(Customer,email=email)
+        error_message = None
+        if user is not None:
+            # auth.login(request,user)
+            flag=check_password(password,user.password)
+            if flag:
+                request.session['id']=user.id
+                request.session['email']=user.email
+                request.session['username']=user.username
                 return redirect('/')
             else:
-                return render(request,'products/login.html')
+                error_message ="Password is Incorrect"
+        else:
+            error_message ="Email Doesn't Exist"
+        return render(request,'products/login.html',{'error':error_message})
     else:
-        return redirect('/')
+        # if request.session.get('id')!='':
+        #     return redirect('/')
+        # else:
+        return render(request,'products/login.html')
+    # else:
+    #     return redirect('/')
     
 def logout(request):
     request.session.clear()
@@ -127,6 +126,12 @@ def logout(request):
     cart.clear()
     return redirect('/')
 
+def profile(request):
+    id = request.session['id']
+    user = get_object_or_404(Customer,id=id)
+    order = get_object_or_404(Order,user_id=id)
+    print(order)
+    return render(request,'products/profile.html',{'user':user,});
 
 
 def register(request):
@@ -143,7 +148,7 @@ def register(request):
                 password=make_password(password)
                 user = Customer.objects.create(first_name=first_name,last_name=last_name,username=username,email=email,
                                             password=password,phone=phone)
-                user.save();
+                user.save()
                 return redirect('/accounts/register') 
         else:
             return render(request,'products/register.html',{'error':error_message})

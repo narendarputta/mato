@@ -5,6 +5,7 @@ chardet==4.0.0
 decorator==4.0.10
 distlib==0.3.1
 dj-database-url==0.5.0
+dj-static==0.0.6
 Django==3.1.4
 django-heroku==0.3.1
 django-shopping-cart==0.1
@@ -24,6 +25,7 @@ requests==2.25.1
 simplegeneric==0.8.1
 six==1.15.0
 sqlparse==0.4.1
+static3==0.7.0
 toml==0.10.2
 traitlets==4.3.1
 tzdata==2022.1

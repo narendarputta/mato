@@ -19,7 +19,7 @@ import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -141,7 +141,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://agile-bastion-47121.herokuapp.com/','127.0.0.1:8000','localhost']
 
 
 CART_SESSION_ID = 'cart'
